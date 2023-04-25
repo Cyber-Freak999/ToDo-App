@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Django To_Do App</title>
+</head>
+
+<body>
+    <header class="title">To-Do List</header>
+    <div class="container">
+        {% block content %}
+
+        <br>
+
+        <form method="post" class="add">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add</button>
+        </form>
+
+        <ul>
+            {% for item in items %}
+            <li>
+                <input type="checkbox" {% if item.completed %}checked{% endif %}>
+                {{ item.description }}
+                <form class="delete_item" action="{% url 'delete_item' item.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="delete">x</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    </div>
+
+
+    <footer>
+        <h2>Made by Precious Eyoh</h2>
+    </footer>
+</body>
+
+</html>

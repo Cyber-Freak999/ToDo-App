@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 10px 0 0 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+body {
+  background-color: lightblue;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  font-size: 54px;
+  font-weight: bold;
+  transform: translateY(50%);
+}
+
+footer {
+  text-align: center;
+  background-color: lightblue;
+  height: auto;
+  z-index: 1;
+}
+.delete_item {
+  display: inline-block;
+  vertical-align: middle;
+}
